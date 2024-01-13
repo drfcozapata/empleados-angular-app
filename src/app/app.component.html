@@ -1,0 +1,47 @@
+<h1 class="text-4xl font-semibold text-center my-10">Empleados</h1>
+
+<div class="w-[80%] mx-auto" (submit)="agregarEmpleado()">
+  <h2 class="text-2xl font-semibold mb-5">Agregar Empleado</h2>
+  <form class="flex flex-col">
+    <div class="flex flex-col">
+      <label for="nombre" class="mb-1 text-xs">Nombre</label>
+      <input type="text" name="nombre" id="nombre" class="mb-3 h-10 border rounded-lg px-5" [(ngModel)]="tablaNombre">
+    </div>
+    <div class="flex flex-col">
+      <label for="apellido" class="mb-1 text-xs">Apellido</label>
+      <input type="text" name="apellido" id="apellido" class="mb-3 h-10 border rounded-lg px-5"
+        [(ngModel)]="tablaApellido">
+    </div>
+    <div class="flex flex-col">
+      <label for="cargo" class="mb-1 text-xs">Cargo</label>
+      <input type="text" name="cargo" id="cargo" class="mb-3 h-10 border rounded-lg px-5" [(ngModel)]="tablaCargo">
+    </div>
+    <div class="flex flex-col">
+      <label for="salario" class="mb-1 text-xs">Salario</label>
+      <input type="number" name="salario" id="salario" class="mb-5 h-10 border rounded-lg px-5"
+        [(ngModel)]="tablaSalario">
+    </div>
+    <input type="submit" value="Agregar"
+      class="py-2 px-4 bg-blue-400 text-white font-semibold uppercase rounded-lg w-1/2 mx-auto">
+  </form>
+
+  <hr class="my-10">
+
+  <h2 class="text-2xl font-semibold mb-5">Listado de Empleados</h2>
+  <table class="w-full mb-20">
+    <thead class="h-10 border-b-2">
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Cargo</th>
+      <th>Salario</th>
+    </thead>
+    <tbody>
+      <tr class="h-10" *ngFor="let empleado of empleados">
+        <td>{{ empleado.nombre}}</td>
+        <td>{{ empleado.apellido}}</td>
+        <td>{{ empleado.cargo}}</td>
+        <td>{{ empleado.salario}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
